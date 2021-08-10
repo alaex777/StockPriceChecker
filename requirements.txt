@@ -1,2 +1,2 @@
-aiogram=2.14.3
-yfinance=0.1.63
+aiogram==2.14.3
+yfinance==0.1.63

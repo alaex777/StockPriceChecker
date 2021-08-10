@@ -28,10 +28,11 @@ async def get_price(message: types.Message):
 	price = ticker.info['regularMarketPrice']
 	current_datetime = datetime.now().strftime("%B %d, %Y %I:%M%p")
 	try:
-		connection = sqlite3.connect("stocks")
+		connection = sqlite3.connect("resources/stocks")
 		cursor = connection.cursor()
 		request = f'insert into stocks(datetime, name, price) values("{current_datetime}", "{company}", {price});'
 		cursor.execute(request)
+		print("Added")
 		cursor.close()
 	except sqlite3.Error as error:
 		print("Ошибка при подключении к sqlite", error)
